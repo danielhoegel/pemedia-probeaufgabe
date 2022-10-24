@@ -1,0 +1,77 @@
+// @use 'sass:math';
+
+// $marginAndPaddingValues: (
+//     '0': 0,
+//     '1': math.div($spacer, 3),
+//     '2': math.div($spacer, 2),
+//     '3': $spacer,
+//     '4': $spacer * 1.5,
+//     '5': $spacer * 3,
+//     'auto': auto
+// );
+
+// $utilConfig: (
+//     'padding': (
+//         'property': 'padding',
+//         'key': 'p',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'padding-y': (
+//         'property': 'padding',
+//         'key': 'p',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'padding-top': (
+//         'property': 'padding-top',
+//         'key': 'pt',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'padding-bottom': (
+//         'property': 'padding-bottom',
+//         'key': 'pb',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'padding-start': (
+//         'property': 'padding-left',
+//         'key': 'ps',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'padding-end': (
+//         'property': 'padding-end',
+//         'key': 'pe',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'margin': (
+//         'property': 'margin',
+//         'key': 'm',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'margin-top': (
+//         'property': 'margin-top',
+//         'key': 'mt',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'margin-bottom': (
+//         'property': 'margin-bottom',
+//         'key': 'mb',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'margin-start': (
+//         'property': 'margin-left',
+//         'key': 'ms',
+//         'values': $marginAndPaddingValues
+//     ),
+//     'margin-end': (
+//         'property': 'margin-end',
+//         'key': 'me',
+//         'values': $marginAndPaddingValues
+//     )
+// );
+
+// @each $util, $config in $utilConfig {
+//     @each $suffix, $value in map-get($config, 'values') {
+//         .#{map-get($config, 'key')}-#{$suffix} {
+//             #{map-get($config, 'property')}: $value;
+//         }
+//     }
+// }

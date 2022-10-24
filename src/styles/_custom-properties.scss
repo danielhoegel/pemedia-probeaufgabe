@@ -1,0 +1,29 @@
+:root {
+    // layout
+    --container-width: 1140px;
+    --spacer: #{$spacer};
+
+    // typography
+    --font-family: 'Roboto', sans-serif;
+    --font-base-size: 20pt;
+    --font-base-line-height: 34pt;
+    --font-base-weight: 400;
+
+    // colors
+
+    --color-gray-100: #f4f7fc;
+    --color-gray-200: #dce3ee;
+    --color-gray-400: #c4cbd8;
+    --color-gray-500: #bcbcbc;
+    --color-gray-600: #b3b8c47a;
+    --color-gray-700: #535353;
+
+    --color-white: #ffffff;
+    --color-primary: #eea7b7;
+    --color-primary-dark: #cb7683;
+    --color-accent: #292878;
+    --color-body: var(--color-gray-700);
+    --color-background: var(--color-gray-100);
+
+    --color-danger: #c72c1c;
+}
