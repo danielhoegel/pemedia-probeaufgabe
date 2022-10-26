@@ -1,3 +1,5 @@
+import { filter } from '../views/PhotoUploadView/filter';
+
 export type ColorType =
     | 'gray-100'
     | 'gray-200'
@@ -12,3 +14,5 @@ export type ColorType =
     | 'body'
     | 'background'
     | 'danger';
+
+export type FilterType = keyof typeof filter;

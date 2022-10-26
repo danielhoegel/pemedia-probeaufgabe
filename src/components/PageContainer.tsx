@@ -6,11 +6,10 @@ type PageContainerPropsType = {
     children: ReactNode;
 };
 
-const OuterContainer = styled.div<PageContainerPropsType>`
+const OuterContainer = styled.main<PageContainerPropsType>`
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    padding: 0 40px;
+    min-height: 100%;
+    overflow: hidden;
     background-color: ${(props) => (props.color ? `var(--color-${props.color})` : 'transparent')};
 `;
 
@@ -21,7 +20,7 @@ const InnerContainer = styled.div<PageContainerPropsType>`
 
 const PageContainer: FC<PageContainerPropsType> = ({ color, children }) => {
     return (
-        <OuterContainer color={color}>
+        <OuterContainer color={color} className="px-5">
             <InnerContainer>{children}</InnerContainer>
         </OuterContainer>
     );

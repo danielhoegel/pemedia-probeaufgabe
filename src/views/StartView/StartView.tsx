@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from '../../components/Button';
-import PageContainer from '../../components/PageContainer';
-import HorizontalDivider from '../../components/HorizontalDivider';
-import { CODE_LENGTH } from '../../utils/utils';
-import CodeInput from './components/CodeInput';
-import logo from '../../assets/logos/logo.svg';
+import React from 'react';
 import styled from 'styled-components';
-
-const emptyCodeArray = new Array(CODE_LENGTH).fill('');
+import logo from '../../assets/logos/logo.svg';
+import Button from '../../components/Button';
+import HorizontalDivider from '../../components/HorizontalDivider';
+import PageContainer from '../../components/PageContainer';
+import CodeInput from './components/CodeInput';
+import { useCode } from './hooks/useCode';
 
 const Logo = styled.img`
     display: block;
@@ -18,29 +15,18 @@ const Logo = styled.img`
 `;
 
 const StartView = () => {
-    const navigate = useNavigate();
-
-    const loginButtonRef = React.useRef<HTMLButtonElement>(null);
-    const [code, setCode] = useState<string[]>(emptyCodeArray);
-
-    const validateCode = () => {
-        if (!code) return false;
-        if (code.length !== CODE_LENGTH) return false;
-        if (code.some((value) => !value)) return false;
-        return true;
-    };
-
-    const isCodeValid = validateCode();
-
-    const submitHandler = () => {
-        if (isCodeValid) {
-            navigate('/photo-upload');
-        }
-    };
+    const {
+        code,
+        isCodeValid,
+        submitHandler,
+        inputRefs,
+        loginButtonRef,
+        codeInputFieldChangeHandler,
+    } = useCode();
 
     return (
         <PageContainer color="primary">
-            <Logo src={logo} alt="52 MEMORIES logo" className="mt-4 mb-6 mx-auto" />
+            <Logo src={logo} alt="52 MEMORIES logo" className="mt-5 mb-6 mx-auto" />
             <h1 className="color-white text-center">Der Schlüssel zum Glück</h1>
             <HorizontalDivider color="white" className="my-4" />
             <div className="color-white text-center mb-4">
@@ -48,15 +34,15 @@ const StartView = () => {
             </div>
             <CodeInput
                 code={code}
-                setCode={setCode}
-                loginButtonRef={loginButtonRef}
-                className="mb-5"
+                className="mb-6"
+                inputRefs={inputRefs}
+                codeInputFieldChangeHandler={codeInputFieldChangeHandler}
             />
             <Button
                 ref={loginButtonRef}
                 onClick={submitHandler}
                 disabled={!isCodeValid}
-                className="mb-2"
+                className="mb-4"
             >
                 Login
             </Button>

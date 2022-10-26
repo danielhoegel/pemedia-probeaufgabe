@@ -2,6 +2,24 @@ import React, { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 import HorizontalDivider from '../../../components/HorizontalDivider';
 
+type StepSectionPropsType = {
+    step: number;
+    title: string;
+    subTitle: string;
+    children: ReactNode;
+    className?: string;
+    isDisabled?: boolean;
+};
+
+const StepSectionWrapper = styled.section<{ isDisabled: StepSectionPropsType['isDisabled'] }>`
+    ${(props) =>
+        props.isDisabled &&
+        `
+        opacity: 0.5;
+        pointer-events: none;
+    `}
+`;
+
 const StepNumber = styled.div`
     width: 2rem;
     height: 2rem;
@@ -14,23 +32,22 @@ const StepNumber = styled.div`
     justify-content: center;
 `;
 
-type StepSectionPropsType = {
-    step: number;
-    title: string;
-    subTitle: string;
-    children: ReactNode;
-    className?: string;
-};
-
-const StepSection: FC<StepSectionPropsType> = ({ step, title, subTitle, className, children }) => {
+const StepSection: FC<StepSectionPropsType> = ({
+    step,
+    title,
+    subTitle,
+    className,
+    children,
+    isDisabled,
+}) => {
     return (
-        <div className={className}>
-            <StepNumber className="mx-auto">{step}</StepNumber>
+        <StepSectionWrapper className={className} isDisabled={isDisabled}>
+            <StepNumber className="mx-auto mb-4">{step}</StepNumber>
             <h2 className="text-center">{title}</h2>
-            <HorizontalDivider />
-            <div className="text-center">{subTitle}</div>
+            <HorizontalDivider className="my-3" />
+            <div className="text-center mb-4">{subTitle}</div>
             {children}
-        </div>
+        </StepSectionWrapper>
     );
 };
 
