@@ -7,6 +7,7 @@ type ButtonProps = {
     className?: string;
     styles?: CSSProperties;
     onClick?: MouseEventHandler<HTMLButtonElement>;
+    type?: 'button' | 'submit' | 'reset';
     children: React.ReactNode;
 };
 
@@ -21,9 +22,15 @@ const StyledButton = styled.button<ButtonProps>`
 `;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ secondary, disabled, children, ...props }, ref) => {
+    ({ secondary, disabled, children, type = 'button', ...props }, ref) => {
         return (
-            <StyledButton disabled={disabled} secondary={secondary} ref={ref} {...props}>
+            <StyledButton
+                disabled={disabled}
+                secondary={secondary}
+                ref={ref}
+                {...props}
+                type={type}
+            >
                 {children}
             </StyledButton>
         );

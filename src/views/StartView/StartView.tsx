@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
+import { HorizontalDivider } from '../../components/HorizontalDivider';
 import { CODE_LENGTH } from '../../utils/utils';
 import CodeInput from './components/CodeInput';
 
@@ -15,12 +16,6 @@ const PageTitle = styled.h1`
 
 const PageSubTitle = styled.p`
     color: var(--color-white);
-`;
-
-const HorizontalDivider = styled.div`
-    width: 2rem;
-    height: 0.25rem;
-    margin: 0 auto;
 `;
 
 const emptyCodeArray = new Array(CODE_LENGTH).fill('');
@@ -48,14 +43,24 @@ const StartView = () => {
 
     return (
         <Container color="primary">
-            <div>LOGO</div>
+            <div className="mx-auto text-center">LOGO</div>
             <PageTitle>Der Schlüssel zum Glück</PageTitle>
             <HorizontalDivider />
             <PageSubTitle>
                 Gib hier den Hochzeichts-Code ein oder erstelle eine Testkarte
             </PageSubTitle>
-            <CodeInput code={code} setCode={setCode} loginButtonRef={loginButtonRef} />
-            <Button ref={loginButtonRef} onClick={submitHandler} disabled={!isCodeValid}>
+            <CodeInput
+                code={code}
+                setCode={setCode}
+                loginButtonRef={loginButtonRef}
+                className="mb-3"
+            />
+            <Button
+                ref={loginButtonRef}
+                onClick={submitHandler}
+                disabled={!isCodeValid}
+                className="mb-2"
+            >
                 Login
             </Button>
             <Button secondary>Testversion</Button>

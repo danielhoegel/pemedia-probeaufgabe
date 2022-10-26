@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 type ContainerProps = {
-    color: string;
+    color?: string;
 };
 
 const Container = styled.div<ContainerProps>`

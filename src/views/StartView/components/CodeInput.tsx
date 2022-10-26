@@ -6,10 +6,12 @@ type CodeInputPropsType = {
     loginButtonRef: RefObject<HTMLButtonElement>;
     code: string[];
     setCode: Dispatch<SetStateAction<string[]>>;
+    className?: string;
 };
 
 const CodeInputContainer = styled.div`
     display: flex;
+    justify-content: center;
     gap: var(--spacer);
 `;
 
@@ -25,7 +27,7 @@ const CodeInputField = styled.input<{ hasValue: boolean }>`
     text-align: center;
 `;
 
-const CodeInput: FC<CodeInputPropsType> = ({ loginButtonRef, code, setCode }) => {
+const CodeInput: FC<CodeInputPropsType> = ({ loginButtonRef, code, setCode, className }) => {
     const inputRefs = useRef<Array<HTMLDivElement | null>>([]);
 
     if (inputRefs.current?.length !== CODE_LENGTH) {
@@ -64,7 +66,7 @@ const CodeInput: FC<CodeInputPropsType> = ({ loginButtonRef, code, setCode }) =>
     };
 
     return (
-        <CodeInputContainer>
+        <CodeInputContainer className={className}>
             {code.map((value, index) => (
                 <CodeInputField
                     key={index}
