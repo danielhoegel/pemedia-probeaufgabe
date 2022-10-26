@@ -1,1 +1,53 @@
 $spacer: 1rem;
+
+:root {
+    // layout
+    --container-width: 1140px;
+    --spacer: #{$spacer};
+
+    // typography
+    --font-family: OpenSans, serif, sans-serif;
+    --font-base-size: 20px;
+    --font-base-line-height: 34px;
+    --font-base-weight: 400;
+
+    --heading-1-size: 40px;
+    --heading-1-line-height: 50px;
+    --heading-1-weight: 600;
+    --heading-2-size: 27px;
+    --heading-2-line-height: 38px;
+    --heading-2-weight: var(--heading-1-weight);
+
+    // colors
+    --color-gray-100: #f4f7fc;
+    --color-gray-200: #dce3ee;
+    --color-gray-400: #c4cbd8;
+    --color-gray-500: #bcbcbc;
+    --color-gray-600: #b3b8c47a;
+    --color-gray-700: #535353;
+
+    --color-white: #ffffff;
+    --color-primary: #eea7b7;
+    --color-primary-dark: #cb7683;
+    --color-accent: #292878;
+    --color-body: var(--color-gray-700);
+    --color-background: var(--color-gray-100);
+
+    --color-danger: #c72c1c;
+}
+
+$colorValues: (
+    'gray-100': var(--color-gray-100),
+    'gray-200': var(--color-gray-200),
+    'gray-400': var(--color-gray-400),
+    'gray-500': var(--color-gray-500),
+    'gray-600': var(--color-gray-600),
+    'gray-700': var(--color-gray-700),
+    'white': var(--color-white),
+    'primary': var(--color-primary),
+    'primary-dark': var(--color-primary-dark),
+    'accent': var(--color-accent),
+    'body': var(--color-body),
+    'background': var(--color-background),
+    'danger': var(--color-danger)
+);

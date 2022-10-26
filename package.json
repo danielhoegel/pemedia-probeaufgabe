@@ -10,6 +10,7 @@
         "@types/node": "^18.11.4",
         "@types/react": "^18.0.22",
         "@types/react-dom": "^18.0.7",
+        "normalize.css": "^8.0.1",
         "prettier": "^2.7.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -34,7 +35,8 @@
         ],
         "rules": {
             "no-console": "warn",
-            "no-unused-vars": "warn"
+            "no-unused-vars": "warn",
+            "@typescript-eslint/no-unused-vars": "warn"
         }
     },
     "browserslist": {

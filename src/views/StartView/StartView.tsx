@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import Button from '../../components/Button';
-import Container from '../../components/Container';
-import { HorizontalDivider } from '../../components/HorizontalDivider';
+import PageContainer from '../../components/PageContainer';
+import HorizontalDivider from '../../components/HorizontalDivider';
 import { CODE_LENGTH } from '../../utils/utils';
 import CodeInput from './components/CodeInput';
-
-const PageTitle = styled.h1`
-    font-size: 40pt;
-    line-height: 50px;
-    text-align: center;
-    color: var(--color-white);
-`;
-
-const PageSubTitle = styled.p`
-    color: var(--color-white);
-`;
+import logo from '../../assets/logos/logo.svg';
+import styled from 'styled-components';
 
 const emptyCodeArray = new Array(CODE_LENGTH).fill('');
+
+const Logo = styled.img`
+    display: block;
+    width: 100%;
+    max-width: 246.76px;
+    height: auto;
+`;
 
 const StartView = () => {
     const navigate = useNavigate();
@@ -42,18 +39,18 @@ const StartView = () => {
     };
 
     return (
-        <Container color="primary">
-            <div className="mx-auto text-center">LOGO</div>
-            <PageTitle>Der Schlüssel zum Glück</PageTitle>
-            <HorizontalDivider />
-            <PageSubTitle>
+        <PageContainer color="primary">
+            <Logo src={logo} alt="52 MEMORIES logo" className="mt-4 mb-6 mx-auto" />
+            <h1 className="color-white text-center">Der Schlüssel zum Glück</h1>
+            <HorizontalDivider color="white" className="my-4" />
+            <div className="color-white text-center mb-4">
                 Gib hier den Hochzeichts-Code ein oder erstelle eine Testkarte
-            </PageSubTitle>
+            </div>
             <CodeInput
                 code={code}
                 setCode={setCode}
                 loginButtonRef={loginButtonRef}
-                className="mb-3"
+                className="mb-5"
             />
             <Button
                 ref={loginButtonRef}
@@ -64,7 +61,7 @@ const StartView = () => {
                 Login
             </Button>
             <Button secondary>Testversion</Button>
-        </Container>
+        </PageContainer>
     );
 };
 

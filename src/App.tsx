@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import 'normalize.css';
 import './styles/styles.scss';
 import PhotoUploadView from './views/PhotoUploadView';
 import StartView from './views/StartView';

@@ -12,18 +12,18 @@ type CodeInputPropsType = {
 const CodeInputContainer = styled.div`
     display: flex;
     justify-content: center;
-    gap: var(--spacer);
+    gap: 10px;
 `;
 
 const CodeInputField = styled.input<{ hasValue: boolean }>`
-    width: 2rem;
-    height: 2rem;
+    width: 47px;
+    height: 52px;
     border: 1px solid var(--color-white);
     border-radius: 0.5rem;
     background-color: ${(props) => (props.hasValue ? 'var(--color-white)' : 'transparent')};
     color: var(--color-accent);
-    font-size: 19pt;
-    line-height: 48pt;
+    font-size: 19px;
+    line-height: 48px;
     text-align: center;
 `;
 
@@ -36,7 +36,7 @@ const CodeInput: FC<CodeInputPropsType> = ({ loginButtonRef, code, setCode, clas
 
     const focusNextElement = (index: number, value: string | undefined) => {
         const focusPreviousElement = !value;
-        let focusElement = null;
+        let focusElement: HTMLElement | null = null;
 
         if (focusPreviousElement) {
             if (index > 0) {

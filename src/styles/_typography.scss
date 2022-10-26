@@ -8,3 +8,24 @@ body {
     background-color: var(--color-background);
     color: var(--color-body);
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--heading-1-size);
+    line-height: var(--heading-1-line-height);
+    font-weight: var(--heading-1-weight);
+}
+
+h2 {
+    font-size: var(--heading-2-size);
+    line-height: var(--heading-2-line-height);
+    font-weight: var(--heading-2-weight);
+}

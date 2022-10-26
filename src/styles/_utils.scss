@@ -2,11 +2,12 @@
 
 $paddingValues: (
     '0': 0,
-    '1': math.div($spacer, 3),
+    '1': math.div($spacer, 2),
     '2': math.div($spacer, 2),
     '3': $spacer,
     '4': $spacer * 1.5,
-    '5': $spacer * 3
+    '5': $spacer * 3,
+    '6': $spacer * 5
 );
 
 $marginValues: map-merge(
@@ -21,30 +22,6 @@ $utilConfig: (
         'property': 'padding',
         'key': 'p',
         'values': $paddingValues
-    ),
-    'padding-y': (
-        'property': 'padding',
-        'key': 'py',
-        'values': (
-            '0': 0 0,
-            '1': math.div($spacer, 3) 0,
-            '2': math.div($spacer, 2) 0,
-            '3': $spacer 0,
-            '4': $spacer * 1.5 0,
-            '5': $spacer * 3 0
-        )
-    ),
-    'padding-x': (
-        'property': 'padding',
-        'key': 'px',
-        'values': (
-            '0': 0 0,
-            '1': 0 math.div($spacer, 3),
-            '2': 0 math.div($spacer, 2),
-            '3': 0 $spacer,
-            '4': 0 $spacer * 1.5,
-            '5': 0 $spacer * 3
-        )
     ),
     'padding-top': (
         'property': 'padding-top',
@@ -70,32 +47,6 @@ $utilConfig: (
         'property': 'margin',
         'key': 'm',
         'values': $paddingValues
-    ),
-    'margin-y': (
-        'property': 'margin',
-        'key': 'my',
-        'values': (
-            '0': 0 0,
-            '1': math.div($spacer, 3) 0,
-            '2': math.div($spacer, 2) 0,
-            '3': $spacer 0,
-            '4': $spacer * 1.5 0,
-            '5': $spacer * 3 0,
-            'auto': auto 0
-        )
-    ),
-    'margin-x': (
-        'property': 'margin',
-        'key': 'mx',
-        'values': (
-            '0': 0 0,
-            '1': 0 math.div($spacer, 3),
-            '2': 0 math.div($spacer, 2),
-            '3': 0 $spacer,
-            '4': 0 $spacer * 1.5,
-            '5': 0 $spacer * 3,
-            'auto': 0 auto
-        )
     ),
     'margin-top': (
         'property': 'margin-top',
@@ -145,13 +96,46 @@ $utilConfig: (
             'center': center,
             'end': end
         )
+    ),
+    'color': (
+        'property': 'color',
+        'key': 'color',
+        'values': $colorValues
+    ),
+    'background-color': (
+        'property': 'background-color',
+        'key': 'bg',
+        'values': $colorValues
     )
 );
 
 @each $util, $config in $utilConfig {
     @each $suffix, $value in map-get($config, 'values') {
         .#{map-get($config, 'key')}-#{$suffix} {
-            #{map-get($config, 'property')}: $value;
+            #{map-get($config, 'property')}: $value !important;
         }
+    }
+}
+
+// mx and my
+@each $suffix, $marginValue in $marginValues {
+    .mx-#{$suffix} {
+        margin-left: $marginValue !important;
+        margin-right: $marginValue !important;
+    }
+    .my-#{$suffix} {
+        margin-top: $marginValue !important;
+        margin-bottom: $marginValue !important;
+    }
+}
+// px and py
+@each $suffix, $paddingValue in $paddingValues {
+    .px-#{$suffix} {
+        padding-left: $paddingValue !important;
+        padding-right: $paddingValue !important;
+    }
+    .py-#{$suffix} {
+        padding-top: $paddingValue !important;
+        padding-bottom: $paddingValue !important;
     }
 }
