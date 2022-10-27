@@ -19,6 +19,7 @@ export const StyledInput = styled.input<{ error?: boolean }>`
     background-color: transparent;
     outline: 0;
     padding: var(--spacer) 0;
+    padding-right: ${(props) => (props.error ? '2rem' : '0')};
     color: ${(props) => (props.error ? 'var(--color-danger)' : 'var(--color-body)')};
 
     &:focus,
