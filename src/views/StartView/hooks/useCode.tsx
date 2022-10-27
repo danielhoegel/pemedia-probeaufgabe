@@ -1,6 +1,7 @@
 import { ChangeEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CODE_LENGTH, updateArrayAtIndex } from '../../../utils/utils';
+import { CODE_LENGTH } from '../../../utils/constants';
+import { updateArrayAtIndex } from '../../../utils/utils';
 
 const emptyCodeArray = new Array(CODE_LENGTH).fill('');
 

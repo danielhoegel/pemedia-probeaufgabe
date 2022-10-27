@@ -46,7 +46,9 @@ const StartView = () => {
             >
                 Login
             </Button>
-            <Button secondary>Testversion</Button>
+            <Button secondary color="white">
+                Testversion
+            </Button>
         </PageContainer>
     );
 };

@@ -11,6 +11,7 @@ export type ColorType =
     | 'primary'
     | 'primary-dark'
     | 'accent'
+    | 'secondary'
     | 'body'
     | 'background'
     | 'danger';

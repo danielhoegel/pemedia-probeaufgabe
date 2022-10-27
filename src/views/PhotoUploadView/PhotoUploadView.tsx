@@ -1,25 +1,39 @@
-import React, { useState } from 'react';
-import Checkbox from '../../components/inputs/Checkbox';
-import TextInput from '../../components/inputs/TextInput';
+import React, { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import TextAreaInput from '../../components/inputs/TextAreaInput';
 import PageContainer from '../../components/PageContainer';
 import PageHeader from '../../components/PageHeader';
+import { FilterType } from '../../utils/utilTypes';
 import FilterSelector from './components/FilterSelector';
 import PhotoUpload from './components/PhotoUpload';
 import StepSection from './components/StepSection';
-import { FilterType } from '../../utils/utilTypes';
-import TextAreaInput from '../../components/inputs/TextAreaInput';
+import SubmitForm from './components/SubmitForm';
 
 const PhotoUploadView = () => {
-    const [uploadedPhoto, setUploadedPhoto] = useState(null);
+    const navigate = useNavigate();
+    const [uploadedPhoto, setUploadedPhoto] = useState<File | null>(null);
     const [selectedFilter, setSelectedFilter] = useState<FilterType>('none');
     const [personalMessage, setPersonalMessage] = useState('');
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [acceptTerms, setAcceptTerms] = useState(false);
 
-    // const photoUploadHandler = () => {};
+    const submitHandler = ({ name, email, acceptTerms }) => {
+        // console.log('submit', {
+        //     uploadedPhoto,
+        //     selectedFilter,
+        //     personalMessage,
+        //     name,
+        //     email,
+        //     acceptTerms,
+        // });
 
-    // const submitHandler = () => {};
+        navigate('/');
+    };
+
+    const uploadedPhotoObjectUrl = useMemo(() => {
+        if (uploadedPhoto) {
+            return URL.createObjectURL(uploadedPhoto);
+        }
+        return '';
+    }, [uploadedPhoto]);
 
     return (
         <>
@@ -32,7 +46,7 @@ const PhotoUploadView = () => {
                     className="mt-5 mb-5"
                 >
                     <PhotoUpload
-                        uploadedPhoto={uploadedPhoto}
+                        uploadedPhotoObjectUrl={uploadedPhotoObjectUrl}
                         setUploadedPhoto={setUploadedPhoto}
                     />
                 </StepSection>
@@ -44,7 +58,7 @@ const PhotoUploadView = () => {
                     isDisabled={!uploadedPhoto}
                 >
                     <FilterSelector
-                        uploadedPhoto={uploadedPhoto}
+                        uploadedPhotoObjectUrl={uploadedPhotoObjectUrl}
                         selectedFilter={selectedFilter}
                         setSelectedFilter={setSelectedFilter}
                     />
@@ -68,12 +82,7 @@ const PhotoUploadView = () => {
                     className="mb-5"
                     isDisabled={!uploadedPhoto || !selectedFilter || !personalMessage}
                 >
-                    <TextInput value={name} onChange={(e) => setName(e.currentTarget.value)} />
-                    <TextInput value={email} onChange={(e) => setEmail(e.currentTarget.value)} />
-                    <Checkbox
-                        checked={acceptTerms}
-                        onSelect={(e) => setAcceptTerms(e.currentTarget.checked)}
-                    />
+                    <SubmitForm onSubmit={submitHandler} />
                 </StepSection>
             </PageContainer>
         </>

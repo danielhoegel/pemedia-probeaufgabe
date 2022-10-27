@@ -106,6 +106,17 @@ $utilConfig: (
         'property': 'background-color',
         'key': 'bg',
         'values': $colorValues
+    ),
+    'position': (
+        'property': 'position',
+        'key': 'position',
+        'values': (
+            'static': static,
+            'relative': relative,
+            'absolute': absolute,
+            'fixed': fixed,
+            'sticky': sticky
+        )
     )
 );
 

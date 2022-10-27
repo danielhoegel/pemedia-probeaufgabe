@@ -12,12 +12,12 @@ type StepSectionPropsType = {
 };
 
 const StepSectionWrapper = styled.section<{ isDisabled: StepSectionPropsType['isDisabled'] }>`
-    ${(props) =>
+    /* ${(props) =>
         props.isDisabled &&
         `
         opacity: 0.5;
         pointer-events: none;
-    `}
+    `} */
 `;
 
 const StepNumber = styled.div`

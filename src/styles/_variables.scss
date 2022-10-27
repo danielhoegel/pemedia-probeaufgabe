@@ -2,7 +2,7 @@ $spacer: 1rem;
 
 :root {
     // layout
-    --container-width: 1140px;
+    --container-width: 640px;
     --spacer: #{$spacer};
 
     // typography
@@ -10,6 +10,7 @@ $spacer: 1rem;
     --font-base-size: 20px;
     --font-base-line-height: 34px;
     --font-base-weight: 400;
+    --font-small-size: 13px;
 
     --heading-1-size: 40px;
     --heading-1-line-height: 50px;
@@ -30,6 +31,7 @@ $spacer: 1rem;
     --color-primary: #eea7b7;
     --color-primary-dark: #cb7683;
     --color-accent: #292878;
+    --color-secondary: var(--color-gray-400);
     --color-body: var(--color-gray-700);
     --color-background: var(--color-gray-100);
 
@@ -47,6 +49,7 @@ $colorValues: (
     'primary': var(--color-primary),
     'primary-dark': var(--color-primary-dark),
     'accent': var(--color-accent),
+    'secondary': var(--color-secondary),
     'body': var(--color-body),
     'background': var(--color-background),
     'danger': var(--color-danger)
