@@ -49,15 +49,23 @@ const UploadPlaceholderImageWrapper = styled.div`
     width: 20%;
     position: relative;
 
+    --length: 30%;
+    --thinkness: 6%;
+
+    &:before,
     &:after {
-        content: '+';
-        font-size: 7vw;
-        line-height: 0.5;
-        color: var(--color-accent);
-        font-weight: bold;
+        content: '';
+        background-color: var(--color-accent);
         position: absolute;
+        height: var(--length);
+        width: var(--thinkness);
+        right: calc(var(--length) / 2);
         bottom: 0;
-        right: 0;
+    }
+
+    &:after {
+        transform-origin: center center;
+        transform: rotate(90deg);
     }
 `;
 
